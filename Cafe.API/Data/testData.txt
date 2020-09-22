@@ -1,0 +1,65 @@
+﻿//CATEGORIES
+ {
+    "name": "Sweet",
+    "description": "Something testy",
+    "products": null
+    },
+    {
+    "name": "Drink",
+    "description": "To drink",
+    "products": null
+ }
+
+
+//CLIENTS
+{
+    "name": "Yurii",
+    "secondname": "Chmutov",
+    "age": 20
+},
+{
+    "name": "Vita",
+    "secondname": "Chmutova",
+    "age": 50
+},
+{
+    "name": "Alina",
+    "secondname": "Ermasheva",
+    "age": 20
+},
+{
+    "name": "Dima",
+    "secondname": "Veretalnik",
+    "age": 19
+},
+{
+    "name": "Kolya",
+    "secondname": "Zotov",
+    "age": 15
+}
+
+//PRODUCTS
+{
+    "id": 2,
+    "name": "Cheesecake Factory",
+    "description": "Testy",
+    "price": 10.00,
+    "weight": 200.0,
+    "calories": 100,
+    "currentCategoryId": 1,
+    "category": null,
+    "clientProducts": null
+},
+{
+    "id": 3,
+    "name": "Shokolaat",
+    "description": "mmmmmmmm",
+    "price": 15.00,
+    "weight": 200.0,
+    "calories": 150,
+    "currentCategoryId": 1,
+    "category": null,
+    "clientProducts": null
+}
+
+//SALES
