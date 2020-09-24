@@ -45,11 +45,12 @@ namespace Cafe.API.Controllers
                         break;
                 }
 
+                _logger.LogInformation($"Sales was found succesfully");
                 return Ok(sales);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handling your request");
             }
         }
@@ -65,16 +66,18 @@ namespace Cafe.API.Controllers
 
                 if(sales == null)
                 {
+                    _logger.LogWarning($"Client with Id {id} not found");
                     return NotFound($"Can't find client with id {id}");
                 }
                 else
                 {
+                    _logger.LogInformation($"Sales of client with Id {id} were found");
                     return Ok(sales);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handling your request");
             }
         }
@@ -87,15 +90,18 @@ namespace Cafe.API.Controllers
             {
                 if (sale is null)
                 {
+                    _logger.LogWarning($"Sale is null reference");
                     return BadRequest("Client or product is null");
                 }
                 if (!ModelState.IsValid)
                 {
+                    _logger.LogError($"Validation error");
                     return BadRequest("Data is incorrect");
                 }
                 else
                 {
                     _dataRepository.Add(sale);
+                    _logger.LogInformation($"New sale was created succesfully");
                     return StatusCode(StatusCodes.Status201Created);
                 }
             }
@@ -135,11 +141,12 @@ namespace Cafe.API.Controllers
                 var currentPageNumber = pageNumber ?? 1;
                 var currentPageSize = pageSize ?? 5;
 
+                _logger.LogInformation($"Amount of sales on the page {pageNumber}");
                 return Ok(sales.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize));
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handing your request");
             }
         }
@@ -152,20 +159,22 @@ namespace Cafe.API.Controllers
             try
             {
                 var sales = _dataRepository.GetAll()
-                .Where(s => s.Client.SecondName.ToLower()
-                .StartsWith(clientName.ToLower()));
+                    .Where(s => s.Client.SecondName.ToLower()
+                    .StartsWith(clientName.ToLower()));
                         // || s.ClientId == clientId);
 
                 if (sales == null)
                 {
+                    _logger.LogWarning($"{clientName}'s sale not found");
                     return NotFound();
                 }
 
+                _logger.LogInformation($"Sales for client {clientName} was found");
                 return Ok(sales);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handing your request");
             }
         }

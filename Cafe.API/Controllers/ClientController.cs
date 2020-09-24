@@ -45,12 +45,12 @@ namespace Cafe.API.Controllers
                         break;
                 }
 
-
+                _logger.LogInformation($"Collection of clients was found");
                 return Ok(clients);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handling your request");
             }
         }
@@ -65,13 +65,15 @@ namespace Cafe.API.Controllers
 
                 if (client == null)
                 {
+                    _logger.LogWarning($"Client with Id {id} not found");
                     return NotFound("Sorry, I can't find this client");
                 }
+
                 return Ok(client);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"{ex.Message}", ex);
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, "A problem happened while handling your request");
             }
         }
@@ -84,13 +86,17 @@ namespace Cafe.API.Controllers
             {
                 if (client is null)
                 {
+                    _logger.LogInformation($"Client is null");
                     return BadRequest("Client is null");
                 }
                 if (!ModelState.IsValid)
                 {
+                    _logger.LogWarning($"Validation error");
                     return BadRequest("Data is incorrect");
                 }
+
                 _dataRepository.Add(client);
+                _logger.LogInformation($"New client was added");
                 return StatusCode(StatusCodes.Status201Created);
             }
             catch (Exception ex)
@@ -110,11 +116,13 @@ namespace Cafe.API.Controllers
 
                 if (entity == null)
                 {
+                    _logger.LogWarning($"Client with Id {id} not found");
                     return NotFound("We can't find this client");
                 }
                 else
                 {
                     _dataRepository.Update(entity, client);
+                    _logger.LogInformation($"Client with Id {id} was updated");
                     return Ok("Data was updated succesfully");
                 }
             }

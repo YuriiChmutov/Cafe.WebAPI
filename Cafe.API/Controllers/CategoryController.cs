@@ -50,7 +50,7 @@ namespace Cafe.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Collection of categories wasn't found, {ex.Message}");
-                return NotFound();
+                return StatusCode(500, "A problem happened while handling your request");
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Cafe.API.Models.Entities;
 
 namespace Cafe.API.Data
 {
@@ -38,12 +39,40 @@ namespace Cafe.API.Data
                 .WithMany(s => s.ClientProducts)
                 .HasForeignKey(c => c.ProductId);
 
-            // Configure Cascade Delete using Fluent API
-            //modelBuilder.Entity<Models.Entities.Category>()
-            //    .HasMany<Models.Entities.Product>(c => c.Products)
-            //    .WithOne(s => s.Category)
-            //    .HasForeignKey(s => s.CategoryId)
-            //    .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<Category>().HasData(
+            //    new Category()
+            //    {
+            //        Name = "Breakfast",
+            //        Description = "The first meal of the day, usually eaten in the morning."
+            //    },
+            //    new Category()
+            //    {
+            //        Name = "Drinks",
+            //        Description = "A liquid intended for human consumption"
+            //    },
+            //    new Category()
+            //    {
+            //        Name = "Soup",
+            //        Description = "Be bowled over by our nourishing soups. Our warming recipes range from classic minestrone and vibrant tomato soup to blends such as celeriac, hazelnut and truffle."
+            //    },
+            //    new Category()
+            //    {
+            //        Name = "Pizza",
+            //        Description = "Dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients"
+            //    },
+            //    new Category()
+            //    {
+            //        Name = "Burger",
+            //        Description = "Sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun"
+            //    },
+            //    new Category()
+            //    {
+            //        Name = "Salad",
+            //        Description = "Dish consisting of pieces of food in a mixture, with at least one raw ingredient"
+            //    }                
+            //);
+
+            //base.OnModelCreating(modelBuilder);
         }
     }
 }

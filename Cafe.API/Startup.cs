@@ -32,6 +32,8 @@ namespace Cafe.API
             services.AddScoped<IDataRepository<Client>, ClientDataManager>();
             services.AddScoped<IDataRepository<Product>, ProductDataManager>();
             services.AddScoped<IDataRepository<ClientProduct>, SaleDataManager>();
+
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,9 @@ namespace Cafe.API
             app.UseHttpsRedirection();
             context.Database.EnsureCreated();
             app.UseMvc();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }
