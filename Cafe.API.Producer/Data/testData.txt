@@ -1,0 +1,92 @@
+﻿//CATEGORIES
+ {
+    {
+        "id": 1,
+        "name": "Breakfast",
+        "description": "The first meal of the day, usually eaten in the morning.",
+        "products": null
+    },
+    {
+        "id": 2,
+        "name": "Drinks",
+        "description": "A liquid intended for human consumption",
+        "products": null
+    },
+    {
+        "id": 4,
+        "name": "Soup",
+        "description": "Be bowled over by our nourishing soups. Our warming recipes range from classic minestrone and vibrant tomato soup to blends such as celeriac, hazelnut and truffle.",
+        "products": null
+    },
+    {
+        "id": 5,
+        "name": "Pizza",
+        "description":  "Dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients",
+        "products": null
+    },
+    {
+        "id": 6,
+        "name": "Burger",
+        "description": "Sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun",
+        "products": null
+    },
+    {
+        "id": 8,
+        "name": "Salad",
+        "description": "Dish consisting of pieces of food in a mixture, with at least one raw ingredient",
+        "products": null
+    }
+
+
+//CLIENTS
+{
+    "name": "Yurii",
+    "secondname": "Chmutov",
+    "age": 20
+},
+{
+    "name": "Vita",
+    "secondname": "Chmutova",
+    "age": 50
+},
+{
+    "name": "Alina",
+    "secondname": "Ermasheva",
+    "age": 20
+},
+{
+    "name": "Dima",
+    "secondname": "Veretalnik",
+    "age": 19
+},
+{
+    "name": "Kolya",
+    "secondname": "Zotov",
+    "age": 15
+}
+
+//PRODUCTS
+{
+    "id": 2,
+    "name": "Cheesecake Factory",
+    "description": "Testy",
+    "price": 10.00,
+    "weight": 200.0,
+    "calories": 100,
+    "currentCategoryId": 1,
+    "category": null,
+    "clientProducts": null
+},
+{
+    "id": 3,
+    "name": "Shokolaat",
+    "description": "mmmmmmmm",
+    "price": 15.00,
+    "weight": 200.0,
+    "calories": 150,
+    "currentCategoryId": 1,
+    "category": null,
+    "clientProducts": null
+}
+
+//SALES
